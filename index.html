@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Voting Application</title>
+    <style>
+        </style>
+    <script src="main.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.1.umd.min.js"
+        type="application/javascript"></script>
+</head>
+<style>
+    /* Reset default margin and padding */
+    body, h1, h2, p, ul, li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Set a background gradient */
+    body {
+        background: linear-gradient(45deg, #0d6efd, #d63384);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+    
+    /* Style the navbar */
+    .navbar {
+        background: linear-gradient(45deg, #6610f2, #d63384);
+        overflow: hidden;
+    }
+    
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        font-weight: 500;
+        font-size: larger;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    .navbar a:hover {
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+    }
+    
+    /* Style the container */
+    .container {
+        background-color: white;
+        border-radius: 30px;
+        padding: 40px;
+        margin: 20px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 30px;
+    }
+    
+    .contain1 {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    /* Style the connect button */
+    .connect-button {
+        background: linear-gradient(45deg, #6610f2, #d63384);
+        color: white;
+        font-weight: 800;
+        font-size: larger;
+        border: none;
+        padding: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    .connect-button:hover {
+        background-color: #219d53;
+    }
+    
+    /* Style the vote input and button */
+    #vote {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    
+    .add-vote-button {
+        background-color: #3f51b8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 100;
+        font-size: large;
+    }
+    
+    #metamasknotification {
+        font-weight: 800;
+        font-size: larger;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: black;
+    }
+    
+    .add-vote-button:hover {
+        background-color: blue;
+    }
+    
+    /* Style the status button */
+    .status-button {
+        background: linear-gradient(45deg, #6610f2, #d63384);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .status-button:hover {
+        background-color: #8e44ad;
+    }
+    
+    /* Style paragraphs */
+    p {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+    
+    @media screen and (max-width: 768px) {
+        /* Adjust styling for smaller screens (e.g., mobile) */
+        .navbar a {
+            font-size: smaller;
+        }
+    
+        .container {
+            padding: 20px;
+            margin: 10px;
+            font-size: 24px;
+        }
+    
+        .contain1 {
+            font-size: 24px;
+        }
+    
+        .connect-button {
+            font-size: medium;
+            padding: 15px;
+        }
+    
+        .add-vote-button {
+            font-size: medium;
+            padding: 10px 15px;
+        }
+    
+        .status-button {
+            font-size: medium;
+            padding: 10px 15px;
+        }
+    }
+    </style>    
+<body>
+   <div class="navbar">
+    <a href="./index.html">Vote</a>
+    <a href="./ListVoters.html">List Of Voters</a>
+   </div> 
+   <div class="contain1">Welcome to the Decentralized voting Application</div>
+   <div>
+    <button class="connect-button" onclick="connectMetamask()">Connect Metamask</button>
+    <p id="metamasknotification"></p>
+   </div>
+     <div class="container">
+        <span>Vote Here</span>
+    <input type="number" id="vote" placeholder="Add Your Vote Here....." >
+    <button class="add-vote-button" onclick="addvote()">Add Vote</button>
+    <p id="cand"></p>
+    <button  class="status-button" onclick="voteStatus()">Check Voting Status</button>
+    <p id="status"></p>
+    <p id="time"></p>
+     </div>
+</body>
+</html>
